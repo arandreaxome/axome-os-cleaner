@@ -1,0 +1,17 @@
+{
+  "name": "axomeos-cleaner",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Extension Chrome : surcouche allégée d'Axome OS pour un dev (préfiltres et masquage).",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/content.ts src/popup.ts src/options.ts --bundle --outdir=dist --target=chrome120 --log-level=warning",
+    "watch": "npm run build -- --watch",
+    "typecheck": "tsc --noEmit --pretty"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.0"
+  }
+}

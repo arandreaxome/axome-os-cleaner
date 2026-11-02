@@ -1,0 +1,323 @@
+/* ==========================================================================
+   Thème « Olive » d'Axome OS, repris de Galaxia Radar (palette et style,
+   sans la police). Toutes les règles dépendent de html[data-axc-skin] : content.ts
+   le pose selon les réglages, et le retire avec Alt+Shift+A.
+   Axome OS définit ses couleurs par variables (composantes HSL, thème shadcn) sur
+   <html>, avec des variantes de thème et de contraste : on les redéfinit sur <body>,
+   qui passe devant pour toute la page, puis on corrige ce qui ne passe pas par elles.
+   ========================================================================== */
+
+html[data-axc-skin] {
+  color-scheme: dark;
+  /* Cases à cocher et curseurs natifs */
+  accent-color: #5c6b5c;
+  scrollbar-color: #4a5d4a #1a1a1a;
+  background: #1a1a1a;
+}
+
+html[data-axc-skin] body {
+  /* Palette de Galaxia */
+  --axc-black: 0 0% 10%; /* noir profond */
+  --axc-anthracite: 0 0% 17%; /* gris anthracite */
+  --axc-olive: 120 12% 26%; /* vert olive foncé */
+  --axc-field: 120 11% 33%; /* gris-vert militaire mat */
+  --axc-field-light: 120 8% 39%; /* gris-vert clair */
+  --axc-ivory: 44 25% 88%; /* blanc cassé, ivoire */
+  --axc-ivory-2: 42 6% 66%; /* ivoire à 72 % sur le noir (opaque : l'app ajoute sa propre opacité) */
+  --axc-ivory-3: 45 4% 55%; /* ivoire à 58 % sur le noir */
+  --axc-red: 0 56% 27%; /* rouge sombre : états actifs et alertes, en fond uniquement */
+  --axc-brass: 41 31% 47%; /* laiton */
+  --axc-steel: 208 13% 50%; /* acier */
+  --axc-brick: 9 48% 48%; /* brique */
+
+  /* Statuts : texte clair et lisible (contraste ≥ 5,8 sur l'anthracite), fond sourd, liseré mat. */
+  --axc-good: 110 20% 66%;
+  --axc-good-bg: 115 16% 19%;
+  --axc-good-line: var(--axc-field);
+  --axc-warn: 41 42% 66%;
+  --axc-warn-bg: 41 24% 17%;
+  --axc-warn-line: 41 28% 36%;
+  --axc-bad: 9 55% 70%;
+  --axc-bad-bg: 0 40% 19%;
+  --axc-bad-line: 0 45% 33%;
+  --axc-info: 208 24% 72%;
+  --axc-info-bg: 208 16% 19%;
+  --axc-info-line: 208 13% 38%;
+  --axc-brand: 275 16% 74%;
+  --axc-brand-bg: 275 10% 20%;
+  --axc-brand-line: 275 10% 37%;
+  --axc-teal: 175 18% 66%;
+  --axc-teal-bg: 175 14% 17%;
+  --axc-teal-line: 175 12% 33%;
+  --axc-pink: 340 22% 72%;
+  --axc-pink-bg: 340 12% 19%;
+  --axc-pink-line: 340 12% 35%;
+
+  /* Surfaces : page noire, panneaux anthracite, puces et survols olive. */
+  --background: var(--axc-black);
+  --foreground: var(--axc-ivory);
+  --card: var(--axc-anthracite);
+  --card-foreground: var(--axc-ivory);
+  --popover: var(--axc-anthracite);
+  --popover-foreground: var(--axc-ivory);
+  --secondary: var(--axc-olive);
+  --secondary-foreground: var(--axc-ivory);
+  --muted: var(--axc-olive);
+  --muted-foreground: var(--axc-ivory-2);
+  --fg-3: var(--axc-ivory-3);
+  --accent: var(--axc-olive);
+  --accent-foreground: var(--axc-ivory);
+  --accent-hover: var(--axc-field);
+  --hover-surface: var(--axc-olive);
+  --hover-surface-foreground: var(--axc-ivory);
+  --surface-1: var(--axc-black);
+  --surface-2: var(--axc-anthracite);
+  --surface-3: var(--axc-anthracite);
+  --surface-4: var(--axc-olive);
+  --surface-overlay: var(--axc-anthracite);
+  --surface-raised: var(--axc-black);
+  --border: var(--axc-field);
+  --border-strong: var(--axc-field-light);
+  --input: var(--axc-field);
+  --ring: var(--axc-ivory);
+  --on-solid: var(--axc-ivory);
+
+  /* Primaire : l'ivoire, seule couleur lisible en texte (liens, onglet actif, focus).
+     Les boutons à fond primaire passent en gris-vert plus bas. */
+  --primary: var(--axc-ivory);
+  --primary-foreground: var(--axc-black);
+  --primary-hover: var(--axc-ivory);
+  --primary-subtle-bg: var(--axc-olive);
+  --primary-subtle-text: var(--axc-ivory);
+
+  --brand: var(--axc-brand);
+  --brand-foreground: var(--axc-black);
+  --brand-hover: var(--axc-brand);
+  --brand-subtle-bg: var(--axc-brand-bg);
+  --brand-subtle-text: var(--axc-brand);
+  --brand-linkedin: var(--axc-steel);
+  --signature: var(--axc-warn);
+  --signature-foreground: var(--axc-black);
+  --signature-subtle-bg: var(--axc-warn-bg);
+  --signature-text: var(--axc-warn);
+  --destructive: var(--axc-red);
+  --destructive-foreground: var(--axc-ivory);
+  --success: var(--axc-good);
+  --success-foreground: var(--axc-black);
+  --success-text: var(--axc-good);
+  --warning: var(--axc-warn);
+  --warning-foreground: var(--axc-black);
+  --warning-text: var(--axc-warn);
+  --info: var(--axc-info);
+  --info-foreground: var(--axc-black);
+  --silae-absence: var(--axc-brick);
+  --silae-absence-text: var(--axc-bad);
+  --stage-done: var(--axc-olive);
+  --stage-done-hover: var(--axc-field);
+  --stage-alert: var(--axc-brass);
+
+  --status-green-bg: var(--axc-good-bg);
+  --status-green-text: var(--axc-good);
+  --status-green-border: var(--axc-good-line);
+  --status-amber-bg: var(--axc-warn-bg);
+  --status-amber-text: var(--axc-warn);
+  --status-amber-border: var(--axc-warn-line);
+  --status-red-bg: var(--axc-bad-bg);
+  --status-red-text: var(--axc-bad);
+  --status-red-border: var(--axc-bad-line);
+  --status-blue-bg: var(--axc-info-bg);
+  --status-blue-text: var(--axc-info);
+  --status-blue-border: var(--axc-info-line);
+  --status-purple-bg: var(--axc-brand-bg);
+  --status-purple-text: var(--axc-brand);
+  --status-purple-border: var(--axc-brand-line);
+  --status-teal-bg: var(--axc-teal-bg);
+  --status-teal-text: var(--axc-teal);
+  --status-teal-border: var(--axc-teal-line);
+  --status-gray-bg: 0 0% 20%;
+  --status-gray-text: var(--axc-ivory-2);
+  --status-gray-border: 120 5% 30%;
+  --tag-pink-bg: var(--axc-pink-bg);
+  --tag-pink-text: var(--axc-pink);
+  --tag-pink-border: var(--axc-pink-line);
+
+  --block-com: var(--axc-warn-bg);
+  --block-com-text: var(--axc-warn);
+  --block-com-border: var(--axc-warn-line);
+  --block-absence: var(--axc-bad-bg);
+  --block-absence-text: var(--axc-bad);
+  --block-absence-border: var(--axc-brick);
+  --block-hatch: 44 25% 88% / 0.07;
+  --staffing-available-bg: var(--axc-good-bg);
+  --staffing-available-text: var(--axc-good);
+  --staffing-available-border: var(--axc-good-line);
+  --staffing-assigned-bg: var(--axc-info-bg);
+  --staffing-assigned-text: var(--axc-info);
+  --staffing-assigned-border: var(--axc-info-line);
+  --staffing-overload-bg: var(--axc-bad-bg);
+  --staffing-overload-text: var(--axc-bad);
+  --staffing-overload-border: var(--axc-bad-line);
+  --staffing-available: var(--axc-good);
+  --staffing-assigned: var(--axc-info);
+  --staffing-overloaded: var(--axc-bad);
+
+  --sidebar-background: var(--axc-black);
+  --sidebar-foreground: var(--axc-ivory-2);
+  --sidebar-primary: var(--axc-ivory);
+  --sidebar-primary-foreground: var(--axc-black);
+  --sidebar-accent: var(--axc-olive);
+  --sidebar-accent-foreground: var(--axc-ivory);
+  --sidebar-border: var(--axc-field);
+  --sidebar-ring: var(--axc-ivory);
+  --sidebar-muted: var(--axc-ivory-3);
+
+  /* Graphiques : les mêmes teintes sourdes, dans l'ordre des couleurs d'origine. */
+  --chart-1: var(--axc-info);
+  --chart-2: var(--axc-good);
+  --chart-3: var(--axc-brand);
+  --chart-4: var(--axc-warn);
+  --chart-5: var(--axc-teal);
+  --chart-6: var(--axc-pink);
+  --chart-7: var(--axc-brass);
+  --chart-8: var(--axc-bad);
+  --chart-9: var(--axc-ivory-3);
+  --chart-10: var(--axc-ivory);
+  --chart-seq-1: 208 14% 20%;
+  --chart-seq-2: 208 14% 32%;
+  --chart-seq-3: 208 16% 46%;
+  --chart-seq-4: 208 20% 60%;
+  --chart-seq-5: 208 24% 74%;
+  --chart-div-neg-1: 0 40% 25%;
+  --chart-div-neg-2: 5 45% 45%;
+  --chart-div-neg-3: var(--axc-bad);
+  --chart-div-neutral: 0 0% 30%;
+  --chart-div-pos-1: 120 11% 30%;
+  --chart-div-pos-2: 115 15% 48%;
+  --chart-div-pos-3: var(--axc-good);
+  --chart-grid: var(--axc-olive);
+  --chart-axis: var(--axc-ivory-2);
+  --chart-axis-line: var(--axc-olive);
+  --chart-track: var(--axc-black);
+  --chart-past: 45 4% 42%;
+  --chart-cursor: var(--axc-olive);
+
+  /* Aucun relief : dégradés aplatis, ombres et lueurs retirées. */
+  --gradient-primary: linear-gradient(hsl(var(--axc-field)), hsl(var(--axc-field)));
+  --gradient-subtle: linear-gradient(hsl(var(--axc-anthracite)), hsl(var(--axc-anthracite)));
+  --gradient-signature: linear-gradient(hsl(var(--axc-brass)), hsl(var(--axc-brass)));
+  --gradient-glass: linear-gradient(hsl(var(--axc-anthracite)), hsl(var(--axc-anthracite)));
+  --sh-1: 0 0 #0000;
+  --sh-2: 0 0 #0000;
+  --sh-3: 0 0 #0000;
+  --shadow-glow: 0 0 #0000;
+  --shadow-signature-glow: 0 0 #0000;
+  --shadow-glass: 0 0 #0000;
+
+  /* Angles vifs */
+  --radius: 2px;
+  --radius-card: 2px;
+  --radius-md: 2px;
+  --radius-sm: 2px;
+  --f-pill-r: 2px;
+  --f-field-r: 2px;
+  --f-tag-r: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+html[data-axc-skin] ::selection {
+  color: hsl(44 25% 88%);
+  background: hsl(120 11% 33%);
+}
+
+/* Barre du haut et menu sur le noir de la page, comme la barre et le rail de Galaxia. */
+html[data-axc-skin] :is(header, aside).bg-card {
+  background-color: hsl(var(--axc-black));
+}
+
+/* Ombres portées des classes Tailwind (les anneaux de focus et les liserés internes restent). */
+html[data-axc-skin] [class*='shadow']:not([class*='shadow-[inset']) {
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-shadow-colored: 0 0 #0000 !important;
+}
+
+/* Arrondis codés en dur ; les pastilles de texte en rounded-full (statuts, compteurs) aussi,
+   les avatars et les points restent ronds. */
+html[data-axc-skin] :is(.rounded, .rounded-xl, .rounded-2xl, .rounded-3xl, .sm\:rounded-xl, .md\:rounded-xl, .max-md\:rounded-xl, .max-md\:rounded-2xl),
+html[data-axc-skin] .rounded-full[class*='px-'] {
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Menu, boutons
+   -------------------------------------------------------------------------- */
+
+/* Entrée active du menu : fond olive, liseré brique (le rouge sombre ne se voit pas sur l'olive). */
+html[data-axc-skin] aside nav a[class*='shadow-[inset_2px'] {
+  box-shadow: inset 3px 0 0 0 hsl(var(--axc-brick));
+}
+
+/* Boutons principaux (Créer, Nouvelle tâche…) et compteurs : gris-vert, texte ivoire. */
+html[data-axc-skin] :is(.bg-primary, .bg-gradient-primary) {
+  color: hsl(var(--axc-ivory));
+  background-color: hsl(var(--axc-field));
+}
+
+html[data-axc-skin] :is(.hover\:bg-primary\/90, .hover\:bg-primary\/80):hover {
+  background-color: hsl(var(--axc-field-light));
+}
+
+/* Le rouge sombre est illisible en texte sur le noir : le texte d'erreur passe en brique claire. */
+html[data-axc-skin] :is(.text-destructive, .hover\:text-destructive:hover) {
+  color: hsl(var(--axc-bad));
+}
+
+/* --------------------------------------------------------------------------
+   Couleurs Tailwind codées en dur (rares), ramenées aux teintes des statuts
+   -------------------------------------------------------------------------- */
+
+html[data-axc-skin] :is([class*='text-red-'], [class*='text-rose-']) {
+  color: hsl(var(--axc-bad));
+}
+
+html[data-axc-skin] :is([class*='text-orange-'], [class*='text-amber-'], [class*='text-yellow-']) {
+  color: hsl(var(--axc-warn));
+}
+
+html[data-axc-skin] :is([class*='text-green-'], [class*='text-emerald-'], [class*='text-lime-']) {
+  color: hsl(var(--axc-good));
+}
+
+html[data-axc-skin] :is([class*='text-teal-'], [class*='text-cyan-']) {
+  color: hsl(var(--axc-teal));
+}
+
+html[data-axc-skin] :is([class*='text-sky-'], [class*='text-blue-'], [class*='text-indigo-']) {
+  color: hsl(var(--axc-info));
+}
+
+html[data-axc-skin] :is([class*='text-violet-'], [class*='text-purple-'], [class*='text-fuchsia-'], [class*='text-pink-']) {
+  color: hsl(var(--axc-brand));
+}
+
+html[data-axc-skin] :is([class*='text-slate-'], [class*='text-gray-']) {
+  color: hsl(var(--axc-ivory-3));
+}
+
+html[data-axc-skin] :is([class*='bg-green-'], [class*='bg-emerald-']) {
+  background-color: hsl(var(--axc-field));
+}
+
+html[data-axc-skin] [class*='bg-amber-'] {
+  background-color: hsl(var(--axc-brass));
+}
+
+html[data-axc-skin] :is([class*='border-green-'], [class*='border-emerald-']) {
+  border-color: hsl(var(--axc-field));
+}
+
+html[data-axc-skin] [class*='border-amber-'] {
+  border-color: hsl(var(--axc-brass));
+}
